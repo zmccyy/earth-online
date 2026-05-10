@@ -1,0 +1,220 @@
+{
+  "daily_tasks": [
+    {
+      "id": "eat_breakfast",
+      "name": "吃早餐",
+      "description": "补充体力，开启美好的一天",
+      "costs": {
+        "wealth": 10
+      },
+      "rewards": {
+        "hunger": 30,
+        "happiness": 5
+      },
+      "time_cost": 30
+    },
+    {
+      "id": "eat_lunch",
+      "name": "吃午餐",
+      "description": "中午补充能量",
+      "costs": {
+        "wealth": 15
+      },
+      "rewards": {
+        "hunger": 40,
+        "happiness": 5
+      },
+      "time_cost": 60
+    },
+    {
+      "id": "eat_dinner",
+      "name": "吃晚餐",
+      "description": "结束一天的美食时光",
+      "costs": {
+        "wealth": 20
+      },
+      "rewards": {
+        "hunger": 50,
+        "happiness": 10
+      },
+      "time_cost": 90
+    },
+    {
+      "id": "go_to_work",
+      "name": "上班打卡",
+      "description": "打工人的日常，赚钱养家",
+      "requirements": {
+        "identity": "worker"
+      },
+      "costs": {
+        "energy": 30,
+        "hunger": 20
+      },
+      "rewards": {
+        "wealth": 200,
+        "experience": 10
+      },
+      "time_cost": 480
+    },
+    {
+      "id": "study",
+      "name": "学习充电",
+      "description": "知识就是力量",
+      "requirements": {
+        "identity": "student"
+      },
+      "costs": {
+        "energy": 20,
+        "hunger": 10
+      },
+      "rewards": {
+        "intelligence": 1,
+        "experience": 15
+      },
+      "time_cost": 120
+    },
+    {
+      "id": "research",
+      "name": "科研项目",
+      "description": "探索未知的科学领域",
+      "requirements": {
+        "identity": "scientist"
+      },
+      "costs": {
+        "energy": 35,
+        "hunger": 15
+      },
+      "rewards": {
+        "intelligence": 2,
+        "wealth": 150,
+        "experience": 20
+      },
+      "time_cost": 300
+    },
+    {
+      "id": "explore",
+      "name": "野外探险",
+      "description": "探索未知的地方",
+      "requirements": {
+        "identity": "explorer"
+      },
+      "costs": {
+        "energy": 40,
+        "hunger": 25
+      },
+      "rewards": {
+        "strength": 2,
+        "happiness": 15,
+        "experience": 15
+      },
+      "time_cost": 240
+    },
+    {
+      "id": "exercise",
+      "name": "锻炼身体",
+      "description": "生命在于运动",
+      "costs": {
+        "energy": 25,
+        "hunger": 15
+      },
+      "rewards": {
+        "strength": 1,
+        "happiness": 10
+      },
+      "time_cost": 60
+    },
+    {
+      "id": "socialize",
+      "name": "社交活动",
+      "description": "和朋友聚会",
+      "costs": {
+        "wealth": 50,
+        "energy": 15
+      },
+      "rewards": {
+        "social": 1,
+        "happiness": 20
+      },
+      "time_cost": 180
+    },
+    {
+      "id": "rest",
+      "name": "休息放松",
+      "description": "躺平休息，恢复精力",
+      "costs": {
+        "hunger": 5
+      },
+      "rewards": {
+        "energy": 40,
+        "happiness": 10
+      },
+      "time_cost": 120
+    },
+    {
+      "id": "part_time_job",
+      "name": "兼职打工",
+      "description": "利用空闲时间赚点外快",
+      "costs": {
+        "energy": 20,
+        "hunger": 15
+      },
+      "rewards": {
+        "wealth": 80,
+        "experience": 5
+      },
+      "time_cost": 180
+    },
+    {
+      "id": "read_book",
+      "name": "阅读书籍",
+      "description": "读书使人进步",
+      "costs": {
+        "energy": 10
+      },
+      "rewards": {
+        "intelligence": 1,
+        "happiness": 5
+      },
+      "time_cost": 90
+    },
+    {
+      "id": "watch_movie",
+      "name": "看电影",
+      "description": "放松心情，享受娱乐",
+      "costs": {
+        "wealth": 30,
+        "hunger": 10
+      },
+      "rewards": {
+        "happiness": 25,
+        "energy": 10
+      },
+      "time_cost": 150
+    },
+    {
+      "id": "shopping",
+      "name": "逛街购物",
+      "description": "买买买，快乐加倍",
+      "costs": {
+        "wealth": 100,
+        "energy": 20
+      },
+      "rewards": {
+        "happiness": 30,
+        "social": 1
+      },
+      "time_cost": 180
+    },
+    {
+      "id": "sleep",
+      "name": "睡觉",
+      "description": "充足的睡眠很重要",
+      "costs": {},
+      "rewards": {
+        "energy": 80,
+        "hunger": -20
+      },
+      "time_cost": 480
+    }
+  ]
+}

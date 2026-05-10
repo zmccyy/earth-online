@@ -1,0 +1,158 @@
+{
+  "random_events": [
+    {
+      "id": "find_money",
+      "name": "意外之财",
+      "description": "你在路上捡到了一个钱包！里面有一些现金。",
+      "probability": 0.05,
+      "effects": {
+        "wealth": 100,
+        "happiness": 10
+      }
+    },
+    {
+      "id": "get_sick",
+      "name": "身体不适",
+      "description": "你感冒了，需要看医生买药。",
+      "probability": 0.03,
+      "effects": {
+        "energy": -30,
+        "wealth": -100,
+        "happiness": -10
+      }
+    },
+    {
+      "id": "meet_friend",
+      "name": "偶遇老友",
+      "description": "你在街上遇到了多年未见的老朋友！聊得很开心。",
+      "probability": 0.04,
+      "effects": {
+        "social": 2,
+        "happiness": 15
+      }
+    },
+    {
+      "id": "lucky_day",
+      "name": "幸运日",
+      "description": "今天一切顺利，心情大好！",
+      "probability": 0.02,
+      "effects": {
+        "happiness": 20,
+        "energy": 20
+      }
+    },
+    {
+      "id": "bad_day",
+      "name": "倒霉的一天",
+      "description": "今天诸事不顺，心情很差...",
+      "probability": 0.03,
+      "effects": {
+        "happiness": -15,
+        "energy": -10
+      }
+    },
+    {
+      "id": "win_lottery",
+      "name": "中奖了",
+      "description": "你买彩票中了小奖！",
+      "probability": 0.01,
+      "effects": {
+        "wealth": 500,
+        "happiness": 30
+      }
+    },
+    {
+      "id": "lose_wallet",
+      "name": "钱包丢失",
+      "description": "你不小心把钱包弄丢了...",
+      "probability": 0.02,
+      "effects": {
+        "wealth": -200,
+        "happiness": -20
+      }
+    },
+    {
+      "id": "inspiration",
+      "name": "灵感爆发",
+      "description": "你突然有了很好的想法，感觉智商在线！",
+      "probability": 0.03,
+      "effects": {
+        "intelligence": 1,
+        "happiness": 10
+      }
+    },
+    {
+      "id": "traffic_jam",
+      "name": "堵车",
+      "description": "遇到严重堵车，浪费了很多时间。",
+      "probability": 0.04,
+      "effects": {
+        "energy": -15,
+        "happiness": -10
+      }
+    },
+    {
+      "id": "compliment",
+      "name": "收到表扬",
+      "description": "有人夸奖了你，让你很开心！",
+      "probability": 0.04,
+      "effects": {
+        "happiness": 15,
+        "social": 1
+      }
+    },
+    {
+      "id": "food_poisoning",
+      "name": "食物中毒",
+      "description": "你吃了不干净的东西，拉肚子了...",
+      "probability": 0.02,
+      "effects": {
+        "energy": -40,
+        "hunger": -30,
+        "wealth": -50,
+        "happiness": -15
+      }
+    },
+    {
+      "id": "find_treasure",
+      "name": "发现宝藏",
+      "description": "你在旧书里发现了一张藏宝图，找到了一些值钱的东西！",
+      "probability": 0.01,
+      "effects": {
+        "wealth": 300,
+        "happiness": 25
+      }
+    },
+    {
+      "id": "rain",
+      "name": "突降大雨",
+      "description": "突然下起大雨，你被淋成了落汤鸡。",
+      "probability": 0.05,
+      "effects": {
+        "energy": -10,
+        "happiness": -5
+      }
+    },
+    {
+      "id": "promotion",
+      "name": "升职加薪",
+      "description": "好消息！你得到了晋升机会！",
+      "probability": 0.01,
+      "effects": {
+        "wealth": 300,
+        "happiness": 30,
+        "social": 2
+      }
+    },
+    {
+      "id": "argument",
+      "name": "发生争执",
+      "description": "你和某人发生了争执，心情很糟糕。",
+      "probability": 0.03,
+      "effects": {
+        "happiness": -20,
+        "social": -1
+      }
+    }
+  ]
+}
