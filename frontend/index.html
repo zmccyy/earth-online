@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>地球Online — 强制登录,无法退游</title>
+  <link rel="preconnect" href="https://fonts.loli.net">
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=ZCOOL+QingKe+HuangYou&family=VT323&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="server-banner">
+    <span class="dot"></span> 服务器状态:8,086,000,000 人在线
+    <i>·</i> 天道客服部(不存在) <i>·</i> 版本 v46亿·不删档
+  </div>
+
+  <!-- ===== 标题屏 ===== -->
+  <section id="screen-title" class="screen active">
+    <div class="title-box">
+      <p class="title-eyebrow">EARTH ONLINE · 46亿年研发 · 5万年运营</p>
+      <h1 class="game-logo">地球<span>ONLINE</span></h1>
+      <div class="terminal">
+        <div class="terminal-bar"><span></span><span></span><span></span><em>天道系统 · 终端</em></div>
+        <p>&gt; 正在连接 地球OL 服务器……<span class="t-wait">…</span></p>
+        <p>&gt; 已连接。检测到您的账号属性:<b class="t-gold">强制登录,无法退游</b>。</p>
+        <p>&gt; 本游戏不支持存档。祝您好运,玩家。<span class="cursor">▊</span></p>
+      </div>
+      <div class="title-actions">
+        <button id="btn-login" class="btn primary big">🥢 立即登录(投胎)</button>
+        <button id="btn-gallery" class="btn ghost big">🏅 成就图鉴</button>
+      </div>
+      <p class="title-notice">没有客服,没有攻略,没有退款。玩吧。</p>
+    </div>
+  </section>
+
+  <!-- ===== 投胎屏 ===== -->
+  <section id="screen-create" class="screen">
+    <h2 class="screen-title">⚖️ 投胎排队中</h2>
+    <p class="screen-sub">天道正在给你抽卡。重抽要喝孟婆汤,次数有限,自求多福。</p>
+    <div id="char-card" class="gacha-card"><!-- JS 渲染 --></div>
+    <div class="create-actions">
+      <button id="btn-reroll" class="btn ghost">🌀 玄学重抽(剩 <span id="reroll-left">2</span> 次)</button>
+      <button id="btn-confirm" class="btn primary big">✅ 就这个号了,开玩</button>
+    </div>
+  </section>
+
+  <!-- ===== 游戏主屏 ===== -->
+  <section id="screen-game" class="screen">
+    <div class="game-layout">
+      <aside class="panel status-panel hud-frame">
+        <div class="char-head">
+          <div class="avatar small" id="p-avatar">你</div>
+          <div class="char-id">
+            <b id="p-name">—</b>
+            <span id="p-gender"></span>
+          </div>
+          <span id="p-age" class="age-badge vt-num">0</span>
+        </div>
+        <div class="stage-line">📍 <b id="p-stage">—</b></div>
+        <div id="attr-list"></div>
+        <div class="res-grid">
+          <div class="res-cell"><span>存款</span><b id="p-money" class="vt-num">0</b></div>
+          <div class="res-cell"><span>职业</span><b id="p-jobname">无业</b></div>
+        </div>
+        <div class="flags-line" id="p-flags"></div>
+      </aside>
+      <main class="panel main-panel hud-frame">
+        <div id="event-card" class="event-card hidden">
+          <div class="ev-ribbon" id="ev-ribbon"></div>
+          <h3 id="ev-name"></h3>
+          <p id="ev-text"></p>
+          <div id="ev-choices"></div>
+          <p class="ev-hint">按 1/2/3 快速选择</p>
+        </div>
+        <div class="timeline-head">📜 人生日志</div>
+        <div class="timeline-wrap">
+          <div id="timeline"></div>
+        </div>
+        <button id="btn-advance" class="btn primary big advance-btn">▶ 活过这一年</button>
+        <p class="advance-hint">按 <kbd>空格</kbd> 也可以快进人生</p>
+      </main>
+    </div>
+  </section>
+
+  <!-- ===== 结算屏 ===== -->
+  <section id="screen-summary" class="screen">
+    <div class="summary-box hud-frame">
+      <p class="summary-title">—— 账 号 已 注 销 ——</p>
+      <div class="grade-badge" id="s-grade">?</div>
+      <h2 id="s-grade-name"></h2>
+      <p id="s-cause" class="s-cause"></p>
+      <p id="s-comment" class="s-comment"></p>
+      <div id="s-stats" class="s-stats"></div>
+      <div class="timeline-head">👁 人生走马灯</div>
+      <div id="s-highlights" class="s-highlights"></div>
+      <div class="s-review" id="s-review"></div>
+      <div class="summary-actions">
+        <button id="btn-again" class="btn primary big">🔁 删号重练,再来一生</button>
+        <button id="btn-gallery2" class="btn ghost big">🏅 查看图鉴</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 成就图鉴弹窗 ===== -->
+  <div id="modal-gallery" class="modal hidden">
+    <div class="modal-box hud-frame">
+      <div class="modal-head">
+        <h3>🏅 成就图鉴 <span class="gallery-count vt-num" id="gallery-count"></span></h3>
+        <button id="btn-close-gallery" class="btn ghost small">✕ 关闭</button>
+      </div>
+      <div id="gallery-grid" class="gallery-grid"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <footer class="page-footer">画质无敌,不如地球OL。<span>—— 某位不愿意透露姓名的玩家</span></footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1038 @@
+{
+  "events": [
+    {
+      "id": "m_kg",
+      "milestone": true,
+      "milestone_age": 4,
+      "name": "新手村引导任务",
+      "tag": "normal",
+      "text": "你被两位老玩家(爸妈)送进了『幼儿园』新手村,开始接受服务器基础引导。",
+      "log": "引导任务开启:学会自己吃饭、自己上厕所、不哭不闹。奖励:小红花×1。"
+    },
+    {
+      "id": "m_primary",
+      "milestone": true,
+      "milestone_age": 7,
+      "name": "主线任务:小学",
+      "tag": "normal",
+      "text": "新手村第二阶段。主线任务《六年义务教育》已接取,完成奖励:红领巾(服务器身份标识)。",
+      "log": "你加入了小学服务器,从此每天写作业到深夜是这个分区的日常任务。"
+    },
+    {
+      "id": "m_junior",
+      "milestone": true,
+      "milestone_age": 13,
+      "name": "主线任务:初中",
+      "tag": "normal",
+      "text": "你进入了初中副本。该副本新增隐藏机制:『青春期』——快乐值持续掉血,颜值开始随机波动。",
+      "log": "初中副本开启。物理引擎突然变难,作业血条变厚,班上开始出现早恋的隐藏剧情。"
+    },
+    {
+      "id": "m_senior",
+      "milestone": true,
+      "milestone_age": 16,
+      "name": "主线任务:高中",
+      "tag": "normal",
+      "text": "你进入高中地图。前方预警:两年后你将迎来新手村最终Boss——『高考』。",
+      "log": "高中副本开启。倒计时牌挂上了教室,全体玩家进入备战国育状态,睡眠值集体降级。"
+    },
+    {
+      "id": "m_gaokao",
+      "milestone": true,
+      "milestone_age": 18,
+      "name": "新手村最终Boss:高考",
+      "tag": "big",
+      "text": "高考副本开启!全服务器同步锁定,千军万马过独木桥。这是新手村毕业考,也是你人生第一个大型团本。选择你的应战策略:",
+      "choices": [
+        {
+          "text": "开启卷王模式,三年模拟五年高考",
+          "log": "你选择了地狱冲刺,刷题量突破了服务器上限。走进考场时,你的手在发光。",
+          "effects": {"roll_gaokao": {"effort": 1.2}, "happiness": -12, "health": -6}
+        },
+        {
+          "text": "正常复习,稳扎稳打",
+          "log": "你按部就班地走完了备考流程,考场上正常发挥。",
+          "effects": {"roll_gaokao": {"effort": 1.0}, "happiness": -5}
+        },
+        {
+          "text": "裸考,全凭天命(玄学抽卡)",
+          "log": "你裸考了。进考场前你拜了拜文曲星NPC,把命运交给了随机数生成器。",
+          "effects": {"roll_gaokao": {"effort": 0.82}, "happiness": 5}
+        },
+        {
+          "text": "弃考,提前进入社会服",
+          "log": "你放弃了高考副本,直接跳过新手村毕业典礼,进入社会服打工。",
+          "effects": {"set_education": "初中", "graduate_age": 18, "happiness": 3, "set_job": {"name": "电子厂操作工", "salary": 60000, "tier": "工厂"}, "flags_add": ["提前进社"] }
+        }
+      ]
+    },
+    {
+      "id": "m_college",
+      "milestone": true,
+      "milestone_age": 19,
+      "name": "主线任务:大学",
+      "tag": "normal",
+      "conditions": {"flags_any": ["大学生"]},
+      "text": "恭喜通关新手村!你进入了大学服务器。该区域画风突变:没有老师催你写作业,快落是自己的,堕落也是自己的。",
+      "log": "大学服务器已登录。宿舍开黑、社团招新、食堂吃出异物,都是本服特色日常。"
+    },
+    {
+      "id": "m_findjob",
+      "milestone": true,
+      "name": "主线任务:找工作",
+      "tag": "big",
+      "conditions": {"graduate_reached": true, "min_age": 19, "has_job": false, "flags_none": ["大学生", "退休", "创业中"]},
+      "text": "毕业了!你正式离开校园保护区,进入社会服。HR玩家们开始检阅你的装备(学历),选择你的职业路线:",
+      "choices": [
+        {
+          "text": "考编!宇宙的尽头是编制",
+          "log": "你加入了考编大军。一年后,你成功上岸,端上了铁饭碗。亲戚NPC们集体点赞。",
+          "conditions": {"attr_min": {"intellect": 55}},
+          "effects": {"set_job": {"name": "公务员", "salary": 130000, "tier": "体制内"}, "flags_add": ["编制内"], "happiness": 8, "grant_achievement": ["ach_bianzhi"]}
+        },
+        {
+          "text": "进大厂,接受福报团本",
+          "log": "你拿到了大厂Offer,工牌一亮,朋友圈NPC纷纷点赞。代价是:996团本正式开荒。",
+          "conditions": {"education_in": ["本科·985", "本科·211", "本科·一本", "硕士", "博士"]},
+          "effects": {"set_job": {"name": "大厂螺丝钉", "salary": 350000, "tier": "大厂"}, "flags_add": ["996战士"], "happiness": -6}
+        },
+        {
+          "text": "去小公司,当个普通打工人",
+          "log": "你加入了一家小公司,工资不高,但到点就能跑。老板NPC总在画饼,你假装吃得很香。",
+          "effects": {"set_job": {"name": "小公司职员", "salary": 96000, "tier": "打工人"}}
+        },
+        {
+          "text": "继承家业,直接当老板(氪金玩家专属)",
+          "log": "你回家继承了家族企业。别人的主线是打工,你的主线是发工资。",
+          "conditions": {"flags_any": ["氪金开局"]},
+          "effects": {"set_job": {"name": "家族企业继承人", "salary": 600000, "tier": "老板"}, "happiness": 5}
+        },
+        {
+          "text": "摆摊创业,当自己的老板",
+          "log": "你辞别HR,摆起了摊。现实副本的物理引擎教会了你什么叫『理想很丰满』。",
+          "effects": {"money": -50000, "flags_add": ["创业中"], "happiness": -4}
+        },
+        {
+          "text": "躺平待业,先挂机一阵子",
+          "log": "你选择了挂机。家里老玩家开始每日发布唠叨任务:『你看看别人家孩子』。",
+          "effects": {"flags_add": ["躺平", "失业"], "happiness": 4}
+        }
+      ]
+    },
+    {
+      "id": "m_matchmake",
+      "milestone": true,
+      "name": "支线任务:相亲",
+      "tag": "normal",
+      "conditions": {"min_age": 26, "has_spouse": false, "flags_none": ["已拒婚"]},
+      "text": "亲戚NPC向你发布了相亲任务:『隔壁老王家的孩子,条件可好了!』是否前往组队面试?",
+      "choices": [
+        {
+          "text": "去!脱单组队",
+          "log": "你去了。匹配算法这次没坑你,对方也没嫌弃你的面板。组队成功!",
+          "effects": {"match_spouse": true, "happiness": 12}
+        },
+        {
+          "text": "不去,单身贵族万岁",
+          "log": "你拒绝了相亲任务。亲戚NPC的唠叨频率提升至每日三次。",
+          "effects": {"flags_add": ["已拒婚", "单身狗"], "happiness": 3}
+        },
+        {
+          "text": "先拖着,再等等看",
+          "log": "你说『再等等』。亲戚NPC表示明年还会再来。",
+          "effects": {"happiness": -1}
+        }
+      ]
+    },
+    {
+      "id": "m_house",
+      "milestone": true,
+      "name": "终极氪金:买毕业装备(房)",
+      "tag": "big",
+      "conditions": {"min_age": 28, "flags_none": ["有房", "躺平"]},
+      "text": "系统提示:检测到你已到适婚年龄,『房子』这件毕业装备开始绑架你的人生。中介NPC全天候在线。如何入手你的毕业装备?",
+      "choices": [
+        {
+          "text": "全款拿下!(有矿玩家)",
+          "log": "你全款拿下了毕业装备。销售NPC的笑容凝固了——他没见过这么爽快的玩家。",
+          "conditions": {"money_min": 1500000},
+          "effects": {"money": -1500000, "flags_add": ["有房", "全款勇士"], "happiness": 15, "grant_achievement": ["ach_fulkguan"]}
+        },
+        {
+          "text": "贷款上车,三十年订阅计划",
+          "log": "你掏空六个钱包付了首付,签下了三十年分期订阅协议。从此每月工资到账即转走。",
+          "conditions": {"money_min": 200000},
+          "effects": {"money": -200000, "mortgage": {"years_left": 30, "annual": 90000}, "flags_add": ["有房", "房奴"], "happiness": 4, "grant_achievement": ["ach_fangnu"]}
+        },
+        {
+          "text": "不买,租房真香",
+          "log": "你选择继续租房。房东NPC每年按时发布涨租任务,你练就了一身搬家具的好本领。",
+          "effects": {"flags_add": ["租房中"], "happiness": -3}
+        }
+      ]
+    },
+    {
+      "id": "m_child",
+      "milestone": true,
+      "name": "练小号计划",
+      "tag": "big",
+      "conditions": {"min_age": 28, "has_spouse": true, "flags_none": ["有娃"]},
+      "text": "你和队友讨论是否开小号:『养个号吧,不然老了副本没人带。』注意:小号是个无底洞氪金项目,氪金周期长达22年。",
+      "choices": [
+        {
+          "text": "开!练个小号",
+          "log": "小号注册成功!从此你的金币流水多了一个无底洞,凌晨三点还有起夜副本。",
+          "effects": {"add_child": true, "happiness": 8, "money": -20000}
+        },
+        {
+          "text": "丁克,二人世界永流传",
+          "log": "你们决定丁克。亲戚NPC震惊了,你们的组合被称为『服务器最勇敢玩家』。",
+          "effects": {"flags_add": ["丁克"], "happiness": 10, "grant_achievement": ["ach_dingke"]}
+        },
+        {
+          "text": "再等等,先攒够金币",
+          "log": "你们决定再攒攒。反正明年亲戚NPC还会问的。",
+          "effects": {"happiness": -1}
+        }
+      ]
+    },
+    {
+      "id": "m_midlife",
+      "milestone": true,
+      "milestone_age": 40,
+      "name": "隐藏Boss:中年危机",
+      "tag": "big",
+      "conditions": {"has_job": true},
+      "text": "四十岁生日当天,系统为你解锁了隐藏Boss『中年危机』。体检报告出现红色词条,公司来了00后新玩家,你的工位开始摇晃。如何应对?",
+      "choices": [
+        {
+          "text": "偷偷买辆摩托,重拾少年感",
+          "log": "你提了一辆摩托车。头盔一戴,谁都不爱。队友骂了你三天,但你是快乐的。",
+          "effects": {"money": -30000, "happiness": 15, "health": -2}
+        },
+        {
+          "text": "开启养生模式,保温杯里泡枸杞",
+          "log": "你开启了养生挂机模式:枸杞、早睡、八段锦。同事说你提前进入了退休服。",
+          "effects": {"health": 8, "happiness": 5, "money": -5000}
+        },
+        {
+          "text": "卷过00后,证明宝刀未老",
+          "log": "你爆发了第二春,加班强度拉满。00后玩家在背后偷偷叫你『卷王大叔』。",
+          "effects": {"happiness": -8, "health": -5, "money": 30000}
+        }
+      ]
+    },
+    {
+      "id": "m_retire",
+      "milestone": true,
+      "milestone_age": 60,
+      "name": "主线完结:退休",
+      "tag": "big",
+      "text": "你到达了退休年龄,主线任务《上班上班上班》正式完结!系统发放养老金订阅。退休服画风突变:全服都在跳广场舞和钓鱼。",
+      "choices": [
+        {
+          "text": "光荣退休,开启钓鱼佬生涯",
+          "log": "你交还了工牌,加入了退休服钓鱼协会。从此你的对手只有空军。",
+          "conditions": {"has_job": true},
+          "effects": {"lose_job": true, "flags_add": ["退休"], "happiness": 12}
+        },
+        {
+          "text": "被返聘,再发挥余热",
+          "log": "老东家返聘了你,工资减半但闲得发慌。你选择继续站好最后一班岗。",
+          "conditions": {"has_job": true},
+          "effects": {"flags_add": ["退休"], "happiness": 2, "money": 30000}
+        },
+        {
+          "text": "环游世界,把跑图任务补完",
+          "log": "你带上了队友,开启了环游世界跑图计划。你的相册成了朋友圈的核武器。",
+          "conditions": {"money_min": 300000},
+          "effects": {"money": -150000, "flags_add": ["退休"], "happiness": 18, "appearance": 2}
+        }
+      ]
+    },
+    {
+      "id": "ev_pickup",
+      "name": "天降红包",
+      "tag": "good",
+      "weight": 12,
+      "conditions": {"min_age": 4},
+      "text": "你在路边捡到一个红包,里面是一张购物卡。系统提示:失主NPC不在服务区。",
+      "log": "你吃了一顿好的,快乐值+1。天道客服没有受理失主挂失。",
+      "effects": {"money": 300, "happiness": 3}
+    },
+    {
+      "id": "ev_cold",
+      "name": "感冒副本",
+      "tag": "bad",
+      "weight": 14,
+      "conditions": {"min_age": 3},
+      "text": "季节更新的病毒补丁找上了你。你开启了感冒副本:鼻塞、咳嗽、无力,持续七天。",
+      "log": "你花了医药费,吃了三天粥。体质被小小地削弱了一刀。",
+      "effects": {"health": -3, "money": -500, "happiness": -3}
+    },
+    {
+      "id": "ev_scan",
+      "name": "街头扫码送礼品",
+      "tag": "normal",
+      "weight": 10,
+      "conditions": {"min_age": 12},
+      "text": "路边NPC举着二维码:『扫码关注送鸡蛋!』他的眼神真诚得像策划的承诺。",
+      "choices": [
+        {
+          "text": "扫!白嫖鸡蛋",
+          "log": "你扫码领了鸡蛋。当晚你的手机开始收到奇妙的推销电话。",
+          "effects": {"money": 10, "happiness": 2, "health": -1}
+        },
+        {
+          "text": "装作没听见,快步离开",
+          "log": "你匀速通过了扫码区,展现了十年玩家练就的反套路走位。",
+          "effects": {"happiness": 1}
+        }
+      ]
+    },
+    {
+      "id": "ev_lottery",
+      "name": "锦鲤附体:彩票中奖",
+      "tag": "good",
+      "weight": 1,
+      "conditions": {"min_age": 18, "chance": 0.15},
+      "text": "你随手买了一张彩票。开奖那晚,你盯着手机屏幕,发现所有数字都在向你点头。",
+      "log": "你中了大奖!一夜之间,你完成了其他玩家肝一辈子的金币任务。消息已全服公告。",
+      "effects": {"money": 3000000, "happiness": 25, "flags_add": ["锦鲤"], "grant_achievement": ["ach_lottery"]}
+    },
+    {
+      "id": "ev_binghua",
+      "name": "日常团本:老板画饼",
+      "tag": "normal",
+      "weight": 16,
+      "conditions": {"min_age": 20, "has_job": true},
+      "text": "老板NPC召开全员大会:『公司明年上市,在座各位都是原始股东!』饼的香味飘满了整个工位区。",
+      "choices": [
+        {
+          "text": "信了,加班证明忠诚",
+          "log": "你信了饼,自愿加班到十点。饼没吃到,倒是吃到了眼袋。",
+          "effects": {"happiness": -6, "health": -3, "money": 5000}
+        },
+        {
+          "text": "没信,到点就跑",
+          "log": "六点整,你准时下线。老板NPC看着你的背影,在考勤系统里记下了一笔。",
+          "effects": {"happiness": 4}
+        }
+      ]
+    },
+    {
+      "id": "ev_traffic",
+      "name": "服务器延迟:早晚高峰",
+      "tag": "bad",
+      "weight": 15,
+      "conditions": {"min_age": 18, "has_job": true},
+      "text": "早高峰的地铁挤成了压缩文件,导航地图一片血红。地球OL的物理引擎今天格外真实。",
+      "log": "你在通勤跑图中消耗了两小时,体验了人贴人的服务器负载上限。",
+      "effects": {"health": -2, "happiness": -3}
+    },
+    {
+      "id": "ev_classmate",
+      "name": "支线:同学聚会",
+      "tag": "normal",
+      "weight": 10,
+      "conditions": {"min_age": 25},
+      "text": "班级群发布了同学聚会任务。据说当年考得最差的同学,现在是拆迁户;班长在筹备第七次婚礼。",
+      "choices": [
+        {
+          "text": "去,看看别人的面板",
+          "log": "你去了。饭桌上全是面板展示环节,你回家后默默打开了学习软件。",
+          "effects": {"happiness": -5, "intellect": 2}
+        },
+        {
+          "text": "不去,社交能量不足",
+          "log": "你没去,在群里发了个红包完成社交任务,省下了一晚上的内耗。",
+          "effects": {"happiness": 3, "money": -200}
+        }
+      ]
+    },
+    {
+      "id": "ev_hairline",
+      "name": "发际线保卫战",
+      "tag": "normal",
+      "weight": 12,
+      "conditions": {"min_age": 25},
+      "text": "洗头时,你发现排水口聚集了一小撮头发。发际线正在以肉眼可见的速度向战略后方撤退。",
+      "choices": [
+        {
+          "text": "重金植发,守住颜值高地",
+          "log": "你花重金做了植发手术。镜子里,头发回来了,钱包空了。",
+          "conditions": {"money_min": 30000},
+          "effects": {"money": -30000, "appearance": 5, "happiness": 4}
+        },
+        {
+          "text": "接受现实,秃如其来",
+          "log": "你决定与发际线和解。聪明绝顶,说的就是你。",
+          "effects": {"happiness": -4, "intellect": 3}
+        }
+      ]
+    },
+    {
+      "id": "ev_neijuan",
+      "name": "PVP排位:内卷",
+      "tag": "big",
+      "weight": 14,
+      "conditions": {"min_age": 20, "has_job": true},
+      "text": "部门发布了新的绩效排位机制:末位淘汰。工位上的玩家们纷纷进入卷王形态,你不卷就会掉分。",
+      "choices": [
+        {
+          "text": "加入排位,卷生卷死",
+          "log": "你开启卷王形态,把咖啡当水喝。季度末,你冲上了榜单,快乐值垫底。",
+          "effects": {"money": 30000, "happiness": -10, "health": -4}
+        },
+        {
+          "text": "退出排位,到点下班",
+          "log": "你退出了排位赛,成了部门的一股清流。绩效垫底,但精神状态遥遥领先。",
+          "effects": {"happiness": 8, "flags_add": ["躺平"]}
+        }
+      ]
+    },
+    {
+      "id": "ev_fishing",
+      "name": "钓鱼佬永不空军",
+      "tag": "good",
+      "weight": 10,
+      "conditions": {"min_age": 40},
+      "text": "你路过河边,一群钓鱼佬NPC正在固守阵地。那句古老的服务器谚语在耳边响起:『钓鱼佬永不空军。』",
+      "choices": [
+        {
+          "text": "加入他们,扛竿入列",
+          "log": "你蹲了一下午,钓上来一条两指宽的小鱼。但你真正钓到的是快乐。",
+          "effects": {"money": -2000, "happiness": 10, "flags_add": ["钓鱼佬"], "grant_achievement": ["ach_fishing"]}
+        },
+        {
+          "text": "只是路过,继续赶路",
+          "log": "你路过了钓鱼佬阵地,把钓鱼的梦想留给了下一个十年。",
+          "effects": {"happiness": 1}
+        }
+      ]
+    },
+    {
+      "id": "ev_square",
+      "name": "广场舞天团招募",
+      "tag": "good",
+      "weight": 14,
+      "conditions": {"min_age": 55},
+      "text": "小区广场上传来动感音乐,广场舞天团正在招募新成员。领舞大妈NPC的气场堪比服务器管理员。",
+      "log": "你加入了广场舞天团,每天晚上七点准时集合。你的社交圈突然扩大了三十人。",
+      "effects": {"happiness": 8, "health": 3}
+    },
+    {
+      "id": "ev_awaken",
+      "name": "隐藏彩蛋:灵魂觉醒",
+      "tag": "big",
+      "weight": 2,
+      "conditions": {"min_age": 50, "chance": 0.004},
+      "text": "黄昏,你站在天桥上看晚高峰的车流。突然,一种奇异的感觉击中了你——你想起自己从未注册过这个游戏。这时,你突然意识到:这一切,是一个游戏。",
+      "log": "你通关了。你说不出话,只是笑了。服务器公告栏闪过一行无人注意到的小字:『恭喜某位玩家看破红尘,达成真结局。』",
+      "effects": {"ending": "awaken", "ending_cause": "在天桥上突然看破红尘,通关了地球Online。天道亲自为你结算,高维世界已收到你的档案。", "flags_add": ["觉醒者"], "grant_achievement": ["ach_awaken"]}
+    },
+    {
+      "id": "ev_stock",
+      "name": "理财副本:基金绿了",
+      "tag": "bad",
+      "weight": 10,
+      "conditions": {"min_age": 22, "money_min": 10000},
+      "text": "你打开理财App,发现自己重仓的基金绿得像被施了法。理财NPC安慰你:『长期持有,价值投资。』",
+      "choices": [
+        {
+          "text": "割肉离场,落袋为安",
+          "log": "你含泪割肉,从此对『理财』二字过敏。",
+          "effects": {"money": -20000, "happiness": -5}
+        },
+        {
+          "text": "加仓!抄底!",
+          "log": "你选择了加仓,然后看着它继续绿。你把App删了,假装什么都没发生。",
+          "effects": {"money": -50000, "happiness": -8, "intellect": 2}
+        }
+      ]
+    },
+    {
+      "id": "ev_healthcheck",
+      "name": "年度体检报告",
+      "tag": "normal",
+      "weight": 12,
+      "conditions": {"min_age": 25},
+      "text": "体检报告出来了。你的身体零件清单上多了几个红色感叹号:脂肪肝(轻度)、颈椎变直、幽门螺杆菌阳性。",
+      "choices": [
+        {
+          "text": "开启锻炼计划,每周三次",
+          "log": "你办了健身卡,坚持了……一个月。但那一个月是真的。",
+          "effects": {"health": 6, "money": -3000}
+        },
+        {
+          "text": "无视报告,继续摆烂",
+          "log": "你把体检报告塞进了抽屉最深处。眼不见,心不烦。",
+          "effects": {"health": -3, "happiness": 2}
+        }
+      ]
+    },
+    {
+      "id": "ev_oldfriend",
+      "name": "随机匹配:老友来电",
+      "tag": "good",
+      "weight": 10,
+      "conditions": {"min_age": 22},
+      "text": "一个多年未联系的老友突然来电。你们聊了两个小时,从当年糗事聊到人生近况,像中间的十年不存在一样。",
+      "log": "你挂了电话,嘴角带笑。原来友情这个功能,服务器一直没下线。",
+      "effects": {"happiness": 8}
+    },
+    {
+      "id": "m_zhongkao",
+      "milestone": true,
+      "milestone_age": 15,
+      "name": "中级副本:中考",
+      "tag": "big",
+      "text": "中考副本开启!这是初中服务器毕业考,决定你能否进入『重点高中』精英分区。",
+      "choices": [
+        {
+          "text": "冲刺重点班",
+          "log": "你考进了重点高中精英分区。同桌全是卷王,压力拉满但资源翻倍。",
+          "conditions": {"attr_min": {"intellect": 55}},
+          "effects": {"intellect": 4, "happiness": -4}
+        },
+        {
+          "text": "顺其自然",
+          "log": "你进入了普通高中分区。节奏平稳,快乐尚存。",
+          "effects": {"happiness": 2}
+        }
+      ]
+    },
+    {
+      "id": "ev_zuoye",
+      "name": "深夜作业副本",
+      "tag": "normal",
+      "weight": 14,
+      "conditions": {"min_age": 7, "max_age": 12},
+      "text": "晚上十点半,数学作业还剩两页。你的眼皮开始和意识打架。",
+      "choices": [
+        {
+          "text": "熬夜写完,一个字都不差",
+          "log": "你熬夜写完了作业。第二天上课,你把脸埋进了课本。",
+          "effects": {"intellect": 2, "health": -2}
+        },
+        {
+          "text": "明天早点起来补",
+          "log": "你决定早睡早起补作业——然后你迟到了。",
+          "effects": {"happiness": 2, "intellect": -1}
+        }
+      ]
+    },
+    {
+      "id": "ev_xingquban",
+      "name": "兴趣班漩涡",
+      "tag": "normal",
+      "weight": 12,
+      "conditions": {"min_age": 5, "max_age": 10},
+      "text": "老玩家(爸妈)研究出了最新养成攻略:『隔壁孩子报了五个兴趣班!』他们决定给你也加点技能树。",
+      "choices": [
+        {
+          "text": "学奥数,智力点满",
+          "log": "你加入了奥数军团。逻辑值+1,童年快乐-1,这是等价交换。",
+          "effects": {"intellect": 5, "happiness": -4}
+        },
+        {
+          "text": "学画画,走艺术流",
+          "log": "你开始了艺术修行。从此家里的墙成了你的第一个画展。",
+          "effects": {"appearance": 3, "happiness": 2}
+        },
+        {
+          "text": "什么都不学,快乐童年",
+          "log": "你成功守住了快乐。爸妈NPC表示『随他去吧』。",
+          "effects": {"happiness": 5, "health": 2}
+        }
+      ]
+    },
+    {
+      "id": "ev_cards",
+      "name": "小卖部抽卡玄学",
+      "tag": "normal",
+      "weight": 12,
+      "conditions": {"min_age": 6, "max_age": 13},
+      "text": "小卖部上新了收集卡包。全班玩家都在抽卡,据说隐藏卡『闪金SSR』掉率只有百分之一。",
+      "choices": [
+        {
+          "text": "氪零花钱,抽!",
+          "log": "你抽到了一张稀有卡(不是SSR,但够你在同学面前装一星期)。",
+          "effects": {"money": -100, "happiness": 6}
+        },
+        {
+          "text": "忍住,不氪",
+          "log": "你捂紧了零花钱钱包,深藏功与名。",
+          "effects": {"happiness": 1, "intellect": 1}
+        }
+      ]
+    },
+    {
+      "id": "ev_game_rage",
+      "name": "排位连跪",
+      "tag": "bad",
+      "weight": 10,
+      "conditions": {"min_age": 10, "max_age": 35},
+      "text": "你在游戏里开启了排位赛,然后遇到了传说中的机制:连胜之后必有连跪。队友NPC的问候语开始变得不友善。",
+      "choices": [
+        {
+          "text": "再来一把,不信邪",
+          "log": "你连跪了五把。合上电脑时,窗外的天都亮了。",
+          "effects": {"happiness": -6, "health": -2}
+        },
+        {
+          "text": "及时止损,卸载保平安",
+          "log": "你果断卸载游戏。三天后你又装了回来,但那天晚上你睡得很香。",
+          "effects": {"happiness": 3, "health": 2}
+        }
+      ]
+    },
+    {
+      "id": "ev_zaolian",
+      "name": "隐藏剧情:早恋",
+      "tag": "big",
+      "weight": 12,
+      "conditions": {"min_age": 14, "max_age": 17, "attr_min": {"appearance": 45}},
+      "text": "同桌频繁找你借橡皮,概率学告诉我们这不是巧合。系统检测到隐藏剧情『早恋』即将解锁。",
+      "choices": [
+        {
+          "text": "偷偷解锁剧情",
+          "log": "你们偷偷组了队。快乐值暴涨,成绩单暴跌,这是青春的汇率。",
+          "effects": {"happiness": 10, "intellect": -4}
+        },
+        {
+          "text": "假装看不懂,专心刷题",
+          "log": "你假装没读懂信号,把青春锁进了错题本。班主任NPC偷偷点了赞。",
+          "effects": {"intellect": 4, "happiness": -3}
+        }
+      ]
+    },
+    {
+      "id": "ev_sports",
+      "name": "校运会报名",
+      "tag": "normal",
+      "weight": 10,
+      "conditions": {"min_age": 12, "max_age": 17},
+      "text": "校运会开始报名。体育委员NPC的目光扫过全班,最终停在了你的身上。",
+      "choices": [
+        {
+          "text": "报1500米,燃烧卡路里",
+          "log": "你跑完了1500米,重在参与奖到手,体质实打实地+1。",
+          "effects": {"health": 5, "happiness": 3}
+        },
+        {
+          "text": "申请当后勤,递水担当",
+          "log": "你承包了全班的递水业务,在树荫下完成了全程观赛。",
+          "effects": {"happiness": 2}
+        }
+      ]
+    },
+    {
+      "id": "ev_phone",
+      "name": "手机保卫战",
+      "tag": "bad",
+      "weight": 10,
+      "conditions": {"min_age": 13, "max_age": 16},
+      "text": "老玩家在你的书包里搜出了手机,当场执行了没收程序。你的社交系统被强制离线。",
+      "choices": [
+        {
+          "text": "写检讨,争取提前释放",
+          "log": "你写了800字检讨,文笔感人,手机提前一周释放。",
+          "effects": {"happiness": -2, "intellect": 1}
+        },
+        {
+          "text": "顶嘴,据理力争",
+          "log": "你引用了『未成年人保护法』,辩论赢了,但零花钱被扣了半年。",
+          "effects": {"happiness": -4, "money": -500}
+        }
+      ]
+    },
+    {
+      "id": "ev_sheyuan",
+      "name": "大学社团招新",
+      "tag": "normal",
+      "weight": 14,
+      "conditions": {"min_age": 19, "max_age": 20, "flags_any": ["大学生"]},
+      "text": "百团大战!街舞社在跳《野狼disco》,学生会招新排队排到了食堂,吉他社在唱走调的民谣。",
+      "choices": [
+        {
+          "text": "加入街舞社,主打一个帅",
+          "log": "你加入了街舞社,期末汇演上你收获了全场欢呼。",
+          "effects": {"appearance": 4, "happiness": 5}
+        },
+        {
+          "text": "进学生会,卷履历",
+          "log": "你加入了学生会,学会了写策划案和订会议室,履历+1。",
+          "effects": {"intellect": 3, "happiness": -2}
+        },
+        {
+          "text": "哪个都不去,宿舍才是家",
+          "log": "你选择留守宿舍,成就了『宿舍守门人』传说。",
+          "effects": {"happiness": 4}
+        }
+      ]
+    },
+    {
+      "id": "ev_kaoyan",
+      "name": "人生岔路:考研",
+      "tag": "big",
+      "weight": 16,
+      "conditions": {"min_age": 21, "max_age": 22, "flags_any": ["大学生"], "education_in": ["本科·985", "本科·211", "本科·一本", "本科·二本"]},
+      "text": "大四上学期,全班的聊天记录只剩两个问题:『你考研吗?』『你找到工作吗?』系统弹出了人生岔路选择框。",
+      "choices": [
+        {
+          "text": "考研,再卷三年学历",
+          "log": "你开始了考研长征。图书馆、真题、咖啡,日复一日。上岸的那一刻,你哭了。",
+          "conditions": {"attr_min": {"intellect": 55}},
+          "effects": {"set_education": "硕士", "graduate_age": 25, "intellect": 5, "happiness": -5, "grant_achievement": ["ach_master"]}
+        },
+        {
+          "text": "不考了,直接进社会服",
+          "log": "你决定直接毕业。简历已经打印好了,社会服,我来了。",
+          "effects": {"happiness": 2}
+        }
+      ]
+    },
+    {
+      "id": "ev_thesis",
+      "name": "毕业论文查重惊魂",
+      "tag": "normal",
+      "weight": 12,
+      "conditions": {"min_age": 21, "max_age": 25, "flags_any": ["大学生"]},
+      "text": "论文查重率出来了:48%。导师NPC发来六个字:『重写,不然别毕业。』",
+      "choices": [
+        {
+          "text": "推倒重写,逐句原创",
+          "log": "你爆肝两周重写了论文,查重率降到6%。你对自己的专业产生了新的敬意。",
+          "effects": {"intellect": 4, "happiness": -5, "health": -3}
+        },
+        {
+          "text": "再降重一轮,缝缝补补",
+          "log": "你把『的』全换成了『地』,同义词替换玩到极致。查重率压线过关。",
+          "effects": {"happiness": -2, "intellect": 1}
+        }
+      ]
+    },
+    {
+      "id": "ev_pua",
+      "name": "职场PUA检测",
+      "tag": "bad",
+      "weight": 12,
+      "conditions": {"min_age": 23, "max_age": 45, "has_job": true},
+      "text": "老板NPC找你谈话:『你要有感恩之心,外面多少人想进来都进不来。年轻人要吃的了苦。』PUA浓度检测:超标。",
+      "choices": [
+        {
+          "text": "内心反驳,表面点头",
+          "log": "你微笑点头,内心已经写好了辞职信。情绪稳定,工资保住。",
+          "effects": {"happiness": -4}
+        },
+        {
+          "text": "当场回怼,拒绝画饼",
+          "log": "你回怼了。空气安静了三秒。你没被开除,但年终奖和你产生了量子纠缠。",
+          "effects": {"happiness": 8, "money": -8000}
+        }
+      ]
+    },
+    {
+      "id": "ev_tiaocao",
+      "name": "跳槽offer",
+      "tag": "normal",
+      "weight": 12,
+      "conditions": {"min_age": 24, "max_age": 40, "has_job": true},
+      "text": "猎头NPC私信你:『那边给的钱多30%,就是加班多一点。』你盯着招聘软件陷入了沉思。",
+      "choices": [
+        {
+          "text": "跳!薪资才是硬道理",
+          "log": "你跳槽成功,薪资上了一个台阶。新副本的开荒期有点累,但工资到账时一切都值了。",
+          "effects": {"salary_mult": 1.3, "happiness": -3, "money": 10000}
+        },
+        {
+          "text": "不跳,熟悉的地方舒服",
+          "log": "你拒绝了offer,继续在舒适区待着。稳定,但工资也在舒适区。",
+          "effects": {"happiness": 2}
+        }
+      ]
+    },
+    {
+      "id": "ev_promotion",
+      "name": "升职答辩",
+      "tag": "good",
+      "weight": 10,
+      "conditions": {"min_age": 28, "max_age": 48, "has_job": true},
+      "text": "公司开放了晋升通道,你的名字出现在了答辩名单上。PPT已备好,导师NPC已沟通,就差临门一脚。",
+      "choices": [
+        {
+          "text": "全力答辩,冲!",
+          "log": "你答辩成功,职级和薪资双跳。发工资那天,你请自己吃了顿好的。",
+          "effects": {"salary_mult": 1.25, "happiness": 8}
+        },
+        {
+          "text": "今年算了,明年再说",
+          "log": "你放弃了这次答辩。名额给了隔壁工位的卷王。",
+          "effects": {"happiness": -3}
+        }
+      ]
+    },
+    {
+      "id": "ev_layoff",
+      "name": "红色警报:裁员名单",
+      "tag": "big",
+      "weight": 8,
+      "conditions": {"min_age": 30, "max_age": 52, "has_job": true, "flags_none": ["编制内"], "chance": 0.55},
+      "text": "公司发布了『组织架构优化』公告。HRNPC开始逐个约谈,你的工牌在风中微微发抖。",
+      "choices": [
+        {
+          "text": "争取留下,表忠心",
+          "log": "你用三个月的加班证明了价值,留下了。但35岁的阴影从此住进了你心里。",
+          "effects": {"happiness": -8, "health": -4}
+        },
+        {
+          "text": "拿N+1赔偿,体面退场",
+          "log": "你拿了赔偿金离场,潇洒地在朋友圈发了『next chapter』。存款暴涨,快乐待充。",
+          "effects": {"money": 100000, "lose_job": true, "happiness": -2, "grant_achievement": ["ach_laidoff"]}
+        }
+      ]
+    },
+    {
+      "id": "ev_sidehustle",
+      "name": "副业搞钱计划",
+      "tag": "normal",
+      "weight": 10,
+      "conditions": {"min_age": 22, "max_age": 45},
+      "text": "你刷到了『普通人月入过万的十个副业』视频,心潮澎湃,准备开干。",
+      "choices": [
+        {
+          "text": "做自媒体,记录生活",
+          "log": "你更新了一个月,涨粉47个,其中30个是亲戚。有视频突然爆了,赚了一顿火锅钱。",
+          "effects": {"money": 3000, "happiness": 4, "flags_add": ["自媒体"]}
+        },
+        {
+          "text": "周末摆摊,卖柠檬茶",
+          "log": "你的柠檬茶摊开了张,一晚卖了200块,腰酸背痛但快乐。",
+          "effects": {"money": 2000, "health": -2, "happiness": 5}
+        },
+        {
+          "text": "算了,躺着看别人搞",
+          "log": "你收藏了视频,然后再也没打开过。收藏夹:梦想公墓。",
+          "effects": {"happiness": 1}
+        }
+      ]
+    },
+    {
+      "id": "ev_parents_hospital",
+      "name": "老玩家掉血:父母住院",
+      "tag": "big",
+      "weight": 8,
+      "conditions": {"min_age": 32, "max_age": 60, "chance": 0.35},
+      "text": "一通电话把你拉回现实:老玩家(父亲)住院了。你握着手机,第一次感觉到老玩家们的血条也在减少。",
+      "choices": [
+        {
+          "text": "请假陪护,工作先放放",
+          "log": "你请了年假陪护。出院那天,老玩家说你长大了。值得。",
+          "effects": {"happiness": -4, "money": -20000, "intellect": 0, "health": -2}
+        },
+        {
+          "text": "请护工,自己继续搬砖",
+          "log": "你请了金牌护工,视频查房一天三次。钱花了,愧疚也攒下了。",
+          "effects": {"money": -40000, "happiness": -6}
+        }
+      ]
+    },
+    {
+      "id": "ev_marriage_crack",
+      "name": "队友绑定松动:七年之痒",
+      "tag": "big",
+      "weight": 8,
+      "conditions": {"min_age": 35, "max_age": 50, "has_spouse": true, "chance": 0.4},
+      "text": "你和队友的日常对话只剩『吃什么』『随便』。系统提示:组队关系出现裂纹,是否修复?",
+      "choices": [
+        {
+          "text": "安排一次二人旅行,重新连接",
+          "log": "你们去了一趟海边。夕阳下,你们想起了当初为什么要组队。",
+          "effects": {"money": -15000, "happiness": 10}
+        },
+        {
+          "text": "就这样吧,凑合过",
+          "log": "你们选择了『凑合』模式。日子照常过,只是家里的笑声少了一点。",
+          "effects": {"happiness": -5}
+        },
+        {
+          "text": "解除绑定(离婚)",
+          "log": "你们平静地解除了组队关系。财产分割,各回各的服务器。自由了,也孤单了。",
+          "effects": {"divorce": true, "money": -80000, "happiness": -10, "flags_add": ["离过婚"]}
+        }
+      ]
+    },
+    {
+      "id": "ev_grandchild",
+      "name": "新资料片:孙辈上线",
+      "tag": "good",
+      "weight": 10,
+      "conditions": {"min_age": 55, "max_age": 85, "flags_any": ["有娃"]},
+      "text": "你的小号宣布:他将注册小小号。系统检测到你即将解锁『祖父母』新身份,带娃任务即将重新上线。",
+      "choices": [
+        {
+          "text": "亲自带孙,尽享天伦",
+          "log": "你开启了带孙日常,比当年带娃还累,但笑得比当年还多。",
+          "effects": {"happiness": 10, "health": -3}
+        },
+        {
+          "text": "出钱不出力,给红包",
+          "log": "你选择打钱支援,周末再去蹭一顿孙辈的可爱。",
+          "effects": {"money": -30000, "happiness": 6}
+        }
+      ]
+    },
+    {
+      "id": "ev_yanglao",
+      "name": "养老服务器选址",
+      "tag": "normal",
+      "weight": 10,
+      "conditions": {"min_age": 55, "max_age": 72},
+      "text": "你开始考察养老方案:高端养老院的广告词写着『人生下半场,服务不打烊』;居家养老派表示『金窝银窝不如自己的狗窝』。",
+      "choices": [
+        {
+          "text": "预订高端养老院",
+          "log": "你交了预订金。麻将房、体检中心、老年大学,一应俱全。你开始期待退休了。",
+          "conditions": {"money_min": 100000},
+          "effects": {"money": -100000, "happiness": 8}
+        },
+        {
+          "text": "居家养老,守着自己的窝",
+          "log": "你决定守着自己的老窝,广场舞半径五公里,买菜路线闭眼走。",
+          "effects": {"happiness": 5}
+        }
+      ]
+    },
+    {
+      "id": "ev_memory",
+      "name": "回忆杀",
+      "tag": "good",
+      "weight": 12,
+      "conditions": {"min_age": 65},
+      "text": "你翻开了旧相册:泛黄的照片里,年轻的你在大学宿舍举着可乐,笑得没心没肺。",
+      "log": "你看了一下午相册。原来你已经打完了这么多副本,每一关都有它的风景。",
+      "effects": {"happiness": 8}
+    },
+    {
+      "id": "ev_pet",
+      "name": "路边的小猫",
+      "tag": "normal",
+      "weight": 12,
+      "conditions": {"min_age": 18},
+      "text": "下班路上,一只小猫朝你喵了一声。你的心防瞬间被击穿,但理智提醒你:养宠是个长期氪金项目。",
+      "choices": [
+        {
+          "text": "带回家,拜见铲屎官",
+          "log": "你入职了铲屎官岗位,无薪但福利极佳:每天有毛茸茸的治愈。",
+          "effects": {"money": -5000, "happiness": 12, "flags_add": ["铲屎官"]}
+        },
+        {
+          "text": "云吸猫,转身走开",
+          "log": "你忍痛离开,当晚在短视频平台云吸了四十只猫。",
+          "effects": {"happiness": 2}
+        }
+      ]
+    },
+    {
+      "id": "ev_stock_crash",
+      "name": "服务器经济系统波动",
+      "tag": "bad",
+      "weight": 8,
+      "conditions": {"min_age": 25, "money_min": 50000, "chance": 0.4},
+      "text": "全球服经济系统大波动,你的理财组合一夜之间蒸发了小十万。财经NPC们开始用『结构性调整』安慰你。",
+      "log": "你关掉了理财App,决定眼不见为净。经济系统的波动,凡人玩家无法阻挡。",
+      "effects": {"money": -80000, "happiness": -8}
+    },
+    {
+      "id": "ev_mengpo",
+      "name": "梦境彩蛋:孟婆来电",
+      "tag": "big",
+      "weight": 3,
+      "conditions": {"min_age": 45, "chance": 0.05},
+      "text": "梦里,你回到了投胎排队的大厅。孟婆NPC一边给汤续杯一边说:『你那个账号啊,当时可以充值的,你非要选裸装开局。』",
+      "log": "你笑着醒来。原来每次投胎,都是一次没有攻略的开荒。既然来都来了,那就好好玩。",
+      "effects": {"happiness": 10, "intellect": 2}
+    },
+    {
+      "id": "ev_losephone",
+      "name": "手机遗失事件",
+      "tag": "bad",
+      "weight": 8,
+      "conditions": {"min_age": 16},
+      "text": "你摸遍全身口袋,发现手机不见了。最后一帧记忆停在地铁闸机口。你的支付码、聊天记录、人生数据都在里面。",
+      "log": "你挂失、补卡、重装App,花了一天时间把人生数据恢复了大半。现代玩家的命,是手机给的。",
+      "effects": {"money": -6000, "happiness": -6}
+    },
+    {
+      "id": "ev_Upgrade_wifi",
+      "name": "网络卡顿:加载人生",
+      "tag": "bad",
+      "weight": 8,
+      "conditions": {"min_age": 12},
+      "text": "你的宽带在深夜开始降速,视频转圈圈,游戏460ms。地球OL的加载速度,永远快不过你等它的耐心。",
+      "log": "你给客服NPC打了个电话,听了一分钟『您的来电对我们很重要』。",
+      "effects": {"happiness": -4}
+    },
+    {
+      "id": "ev_reunion_failure",
+      "name": "体检复查通知",
+      "tag": "bad",
+      "weight": 8,
+      "conditions": {"min_age": 45, "chance": 0.45},
+      "text": "体检机构打来电话:『有一项指标需要复查。』你的心跳,比电话铃声还快。",
+      "choices": [
+        {
+          "text": "立刻预约,直面报告",
+          "log": "复查结果是虚惊一场。你走出医院,觉得蓝天白云格外好看,健康是真的无价。",
+          "effects": {"money": -3000, "happiness": 6, "health": 2}
+        },
+        {
+          "text": "拖一拖,不敢看",
+          "log": "你拖了两个月,最后被家人NPC押着去复查。也是虚惊一场,但你白了两个月的头发。",
+          "effects": {"happiness": -6, "health": -2}
+        }
+      ]
+    },
+    {
+      "id": "ev_buyfan",
+      "name": "演唱会抢票大战",
+      "tag": "normal",
+      "weight": 8,
+      "conditions": {"min_age": 16, "max_age": 45},
+      "text": "你青春时代最爱的歌手宣布开演唱会。抢票页面开售即崩溃,你的手速和网速将接受双重审判。",
+      "choices": [
+        {
+          "text": "拼手速,抢原价票",
+          "log": "你居然抢到了!演唱会那天,你和几万人一起合唱青春。",
+          "effects": {"money": -1500, "happiness": 12}
+        },
+        {
+          "text": "默默看直播,省钱",
+          "log": "你在直播间挥舞荧光棒(手机手电筒)。快乐打八折,钱包完好无损。",
+          "effects": {"happiness": 5}
+        }
+      ]
+    },
+    {
+      "id": "ev_neighbor",
+      "name": "邻居装修副本",
+      "tag": "bad",
+      "weight": 8,
+      "conditions": {"min_age": 20},
+      "text": "隔壁搬来了新玩家,装修电钻每天八点准时上线。你的周末睡眠副本被强制打断。",
+      "log": "你买了个降噪耳塞,领悟了『大隐隐于市』的真谛。",
+      "effects": {"happiness": -4, "money": -200}
+    },
+    {
+      "id": "ev_douyin",
+      "name": "算法漩涡:再刷一条",
+      "tag": "normal",
+      "weight": 10,
+      "conditions": {"min_age": 12, "max_age": 60},
+      "text": "你打开短视频App打算刷五分钟。回过神来,已经过去两小时,推荐页比你自己还懂你。",
+      "log": "你在算法漩涡里失去了两小时,获得了一种奇怪的空虚快乐。",
+      "effects": {"happiness": 3, "health": -2, "intellect": -1}
+    }
+  ]
+}
